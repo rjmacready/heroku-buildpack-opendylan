@@ -31,4 +31,5 @@ else
 if
 
 echo "ok"
+exit 1
 
