@@ -25,6 +25,9 @@ else
     echo "dir exists!"
     export PATH=$PATH:`pwd`/$dir/bin
     
+    echo "test compiler"
+    dylan-compiler -version
+    
 if
 
 echo "ok"
