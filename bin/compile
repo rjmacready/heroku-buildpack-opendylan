@@ -10,7 +10,7 @@ echo "compiling"
 bins="http://opendylan.org/downloads/opendylan/2013.2/opendylan-2013.2-x86_64-linux.tar.bz2"
 targetfile="opendylan.tar.bz2"
 
-libs="https://www.dropbox.com/s/5jjs3ctm9ej05cc/libgcbins.tar.bz?dl=0"
+libs="https://www.dropbox.com/s/5jjs3ctm9ej05cc/libgcbins.tar.bz?dl=1"
 targetfile2="libgcbins.tar.bz"
 
 dir="opendylan-2013.2"
