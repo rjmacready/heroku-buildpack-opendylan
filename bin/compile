@@ -17,19 +17,28 @@ echo "downloading"
 # mkdir opendylan
 # cd opendylan
 # wget $bins -O $targetfile
+
 curl -s -o $targetfile $bins 
+
+echo "downlod finish"
+
+if [! -f "$targetfile"]; then
+    echo "file doesnt exist"
+    exit 2
+fi
+
 tar -jxf $targetfile
 
 if [! -d "`pwd`/$dir/bin" ]; then
     echo "dir doesnt exist"
-else
-    echo "dir exists!"
-    export PATH=$PATH:`pwd`/$dir/bin
+    exit 2
+fi
     
-    echo "test compiler"
-    dylan-compiler -version
+echo "dir exists!"
+export PATH=$PATH:`pwd`/$dir/bin
     
-if
+echo "test compiler"
+dylan-compiler -version    
 
 echo "ok"
 exit 1
