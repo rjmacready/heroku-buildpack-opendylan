@@ -55,6 +55,7 @@ if [ ! -d "`pwd`/$dir2" ]; then
     exit 2
 fi
 
+# horrible hack ...
 pushd `pwd`/$dir2
 ln -s libgc.so libgc.so.1
 popd
