@@ -47,6 +47,8 @@ fi
 
 ls -l `pwd`/$dir/bin
 
+uname -a
+
 dylan-compiler -version    
 
 
