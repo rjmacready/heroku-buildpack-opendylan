@@ -28,12 +28,12 @@ curl -s -o $targetfile2 $libs
 
 echo "downlod finish"
 
-if [! -f "$targetfile"]; then
+if [ ! -f "$targetfile"]; then
     echo "file doesnt exist"
     exit 2
 fi
 
-if [! -f "$targetfile 2"]; then
+if [ ! -f "$targetfile 2"]; then
     echo "file 2 doesnt exist"
     exit 2
 fi
@@ -41,12 +41,12 @@ fi
 tar -jxf $targetfile
 tar -jxf $targetfile2
 
-if [! -d "`pwd`/$dir/bin" ]; then
+if [ ! -d "`pwd`/$dir/bin" ]; then
     echo "dir doesnt exist"
     exit 2
 fi
 
-if [! -d "`pwd`/$dir2/bin" ]; then
+if [ ! -d "`pwd`/$dir2/bin" ]; then
     echo "dir2 doesnt exist"
     exit 2
 fi
@@ -59,7 +59,7 @@ export PATH=$PATH:`pwd`/$dir/bin
     
 echo "test compiler"
 
-if [! -f "`pwd`/$dir/bin/dylan-compiler" ]; then
+if [ ! -f "`pwd`/$dir/bin/dylan-compiler" ]; then
     echo "compiler doesnt exist"
     exit 2
 fi
