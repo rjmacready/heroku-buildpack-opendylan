@@ -7,7 +7,7 @@ env_dir=$3
 
 echo "compiling"
 
-bins="http://opendylan.org/downloads/opendylan/2013.2/opendylan-2013.2-x86-linux.tar.bz2"
+bins="http://opendylan.org/downloads/opendylan/2013.2/opendylan-2013.2-x86_64-linux.tar.bz2"
 targetfile="opendylan.tar.bz2"
 dir="opendylan-2013.2"
 
