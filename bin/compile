@@ -16,14 +16,15 @@ targetfile2="libgcbins.tar.bz"
 dir="opendylan-2013.2"
 dir2="libgcbins"
 
-echo "downloading"
-
 # curl $bins -s -o - | tar xjf - -C $builddir
 # mkdir opendylan
 # cd opendylan
 # wget $bins -O $targetfile
 
+echo "downloading opendylan"
 curl -s -o $targetfile $bins
+
+echo "downloading libs"
 curl -s -o $targetfile2 $libs
 
 echo "downlod finish"
@@ -38,7 +39,10 @@ if [ ! -f "$targetfile2" ]; then
     exit 2
 fi
 
+echo "extracting opendylan"
 tar -jxf $targetfile
+
+echo "extracting libs"
 tar -jxf $targetfile2
 
 if [ ! -d "`pwd`/$dir/bin" ]; then
