@@ -1,17 +1,31 @@
 #!/usr/bin/env bash
 
 
-build_dir = $1
-cache_dir = $2
-env_dir = $3
+build_dir=$1
+cache_dir=$2
+env_dir=$3
 
 echo "compiling"
 
-bins = "http://opendylan.org/downloads/opendylan/2013.2/opendylan-2013.2-x86-linux.tar.bz2"
+bins="http://opendylan.org/downloads/opendylan/2013.2/opendylan-2013.2-x86-linux.tar.bz2"
+targetfile="opendylan.tar.bz2"
+dir="opendylan-2013.2"
 
 echo "downloading"
 
-curl $bins -s -o - | tar jxf - -C $builddir
+# curl $bins -s -o - | tar xjf - -C $builddir
+# mkdir opendylan
+# cd opendylan
+wget $bins -O $targetfile
+tar -jxf $targetfile
+
+if [! -d "`pwd`/$dir/bin" ]; then
+    echo "dir doesnt exist"
+else
+    echo "dir exists!"
+    export PATH=$PATH:`pwd`/$dir/bin
+    
+if
 
 echo "ok"
 
