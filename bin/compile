@@ -45,12 +45,14 @@ tar -jxf $targetfile
 echo "extracting libs"
 tar -jxf $targetfile2
 
+ls -l --recursive
+
 if [ ! -d "`pwd`/$dir/bin" ]; then
     echo "dir doesnt exist"
     exit 2
 fi
 
-if [ ! -d "`pwd`/$dir2/bin" ]; then
+if [ ! -d "`pwd`/$dir2" ]; then
     echo "dir2 doesnt exist"
     exit 2
 fi
