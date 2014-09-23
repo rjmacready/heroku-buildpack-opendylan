@@ -5,13 +5,13 @@ build_dir = $1
 cache_dir = $2
 env_dir = $3
 
-status "compiling"
+echo "compiling"
 
 bins = "http://opendylan.org/downloads/opendylan/2013.2/opendylan-2013.2-x86-linux.tar.bz2"
 
-status "downloading"
+echo "downloading"
 
 curl $bins -s -o - | tar jxf - -C $builddir
 
-status "ok"
+echo "ok"
 
