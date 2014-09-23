@@ -35,10 +35,20 @@ if [! -d "`pwd`/$dir/bin" ]; then
 fi
     
 echo "dir exists!"
+
 export PATH=$PATH:`pwd`/$dir/bin
     
 echo "test compiler"
+
+if [! -f "`pwd`/$dir/bin/dylan-compiler" ]; then
+    echo "compiler doesnt exist"
+    exit 2
+fi
+
+ll `pwd`/$dir/bin
+
 dylan-compiler -version    
+
 
 echo "ok"
 exit 1
