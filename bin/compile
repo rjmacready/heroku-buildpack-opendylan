@@ -33,7 +33,7 @@ if [ ! -f "$targetfile" ]; then
     exit 2
 fi
 
-if [ ! -f "$targetfile 2" ]; then
+if [ ! -f "$targetfile2" ]; then
     echo "file 2 doesnt exist"
     exit 2
 fi
