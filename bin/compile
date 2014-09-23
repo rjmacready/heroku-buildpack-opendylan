@@ -16,7 +16,8 @@ echo "downloading"
 # curl $bins -s -o - | tar xjf - -C $builddir
 # mkdir opendylan
 # cd opendylan
-wget $bins -O $targetfile
+# wget $bins -O $targetfile
+curl -s -o $targetfile $bins 
 tar -jxf $targetfile
 
 if [! -d "`pwd`/$dir/bin" ]; then
