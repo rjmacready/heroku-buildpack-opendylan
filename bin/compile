@@ -45,8 +45,6 @@ tar -jxf $targetfile
 echo "extracting libs"
 tar -jxf $targetfile2
 
-ls -l --recursive
-
 if [ ! -d "`pwd`/$dir/bin" ]; then
     echo "dir doesnt exist"
     exit 2
@@ -57,12 +55,16 @@ if [ ! -d "`pwd`/$dir2" ]; then
     exit 2
 fi
 
+pushd `pwd`/$dir2
+ln -s libgc.so libgc.so.1
+popd
+ls -l `pwd`/$dir2
 
-echo "dir exists!"
+echo "dirs exists!"
 
 export LD_LIBRARY_PATH=`pwd`/$dir2/
 export PATH=$PATH:`pwd`/$dir/bin
-    
+
 echo "test compiler"
 
 if [ ! -f "`pwd`/$dir/bin/dylan-compiler" ]; then
