@@ -45,7 +45,7 @@ if [! -f "`pwd`/$dir/bin/dylan-compiler" ]; then
     exit 2
 fi
 
-ll `pwd`/$dir/bin
+ls -l `pwd`/$dir/bin
 
 dylan-compiler -version    
 
