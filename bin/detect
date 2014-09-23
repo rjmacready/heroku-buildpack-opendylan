@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+status "detecting"
+
+if [ -f $1/*.lid ]; then
+  status "it is a valid opendylan"
+  exit 0
+else
+  status "it is NOT a valid opendylan"
+  exit 1
+fi
