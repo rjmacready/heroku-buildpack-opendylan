@@ -5,16 +5,20 @@ build_dir=$1
 cache_dir=$2
 env_dir=$3
 
+ls -l $build_dir
+ls -l $cache_dir
+ls -l $env_dir
+
 echo "compiling"
 
 bins="http://opendylan.org/downloads/opendylan/2013.2/opendylan-2013.2-x86_64-linux.tar.bz2"
 targetfile="opendylan.tar.bz2"
 
-libs="https://www.dropbox.com/s/5jjs3ctm9ej05cc/libgcbins.tar.bz?dl=1"
-targetfile2="libgcbins.tar.bz"
+#libs="https://www.dropbox.com/s/5jjs3ctm9ej05cc/libgcbins.tar.bz?dl=1"
+#targetfile2="libgcbins.tar.bz"
 
 dir="opendylan-2013.2"
-dir2="libgcbins"
+#dir2="libgcbins"
 
 # curl $bins -s -o - | tar xjf - -C $builddir
 # mkdir opendylan
@@ -26,8 +30,8 @@ dir2="libgcbins"
 echo "downloading opendylan"
 curl -s -o $targetfile $bins
 
-echo "downloading libs"
-curl -L -s -o $targetfile2 $libs
+#echo "downloading libs"
+#curl -L -s -o $targetfile2 $libs
 
 echo "downlod finish"
 
@@ -36,36 +40,36 @@ if [ ! -f "$targetfile" ]; then
     exit 2
 fi
 
-if [ ! -f "$targetfile2" ]; then
-    echo "file 2 doesnt exist"
-    exit 2
-fi
+#if [ ! -f "$targetfile2" ]; then
+#    echo "file 2 doesnt exist"
+#    exit 2
+#fi
 
 echo "extracting opendylan"
 tar -jxf $targetfile
 
-echo "extracting libs"
-tar -jxf $targetfile2
+#echo "extracting libs"
+#tar -jxf $targetfile2
 
 if [ ! -d "`pwd`/$dir/bin" ]; then
     echo "dir doesnt exist"
     exit 2
 fi
 
-if [ ! -d "`pwd`/$dir2" ]; then
-    echo "dir2 doesnt exist"
-    exit 2
-fi
+#if [ ! -d "`pwd`/$dir2" ]; then
+#    echo "dir2 doesnt exist"
+#    exit 2
+#fi
 
 # horrible hack ...
-pushd `pwd`/$dir2
-ln -s libgc.so libgc.so.1
-popd
-ls -l `pwd`/$dir2
+#pushd `pwd`/$dir2
+#ln -s libgc.so libgc.so.1
+#popd
+#ls -l `pwd`/$dir2
 
 echo "dirs exists!"
 
-export LD_LIBRARY_PATH=`pwd`/$dir2/
+#export LD_LIBRARY_PATH=`pwd`/$dir2/
 export PATH=$PATH:`pwd`/$dir/bin
 
 echo "test compiler"
@@ -75,7 +79,8 @@ if [ ! -f "`pwd`/$dir/bin/dylan-compiler" ]; then
     exit 2
 fi
 
-ls -l `pwd`/$dir/bin
+ls -l `pwd`
+
 
 uname -a
 
