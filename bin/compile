@@ -77,9 +77,6 @@ fi
 
 echo "dirs exists!"
 
-export LD_LIBRARY_PATH=$ROOT_DIR/vendor/libgc
-export PATH=$PATH:`pwd`/$dir/bin
-
 echo "test compiler"
 
 if [ ! -f "`pwd`/$dir/bin/dylan-compiler" ]; then
@@ -97,6 +94,9 @@ echo "uname -a"
 uname -a
 
 echo "test"
+
+export LD_LIBRARY_PATH=$ROOT_DIR/vendor/libgc
+export PATH=$PATH:`pwd`/$dir/bin
 
 dylan-compiler -version    
 
