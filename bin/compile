@@ -5,8 +5,13 @@ build_dir=$1
 cache_dir=$2
 env_dir=$3
 
+echo "build"
 ls -l $build_dir
+
+echo "cache"
 ls -l $cache_dir
+
+echo "env"
 ls -l $env_dir
 
 echo "compiling"
@@ -80,7 +85,7 @@ if [ ! -f "`pwd`/$dir/bin/dylan-compiler" ]; then
 fi
 
 ls -l `pwd`
-
+find -name vendor
 
 uname -a
 
