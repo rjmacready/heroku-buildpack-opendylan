@@ -21,7 +21,7 @@ dir2="libgcbins"
 # cd opendylan
 # wget $bins -O $targetfile
 
-sudo apt-get install libgc-dev
+# sudo apt-get install libgc-dev
 
 echo "downloading opendylan"
 curl -s -o $targetfile $bins
