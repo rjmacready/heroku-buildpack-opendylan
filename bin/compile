@@ -90,8 +90,22 @@ ls -l `pwd`
 ls -l $ROOT_DIR/vendor/libgc
 
 echo "uname -a"
-
 uname -a
+
+echo "uname -p"
+uname -p
+
+echo "uname -i"
+uname -i
+
+echo "uname -o"
+uname -o
+
+echo "uname -s"
+uname -s
+
+echo "uname -v"
+uname -v
 
 echo "test"
 
