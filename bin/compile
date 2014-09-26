@@ -110,10 +110,17 @@ echo "some ls"
 ls -l `pwd`
 ls -l $ROOT_DIR/vendor/libgc
 
-echo "test"
+echo "clean-ish env"
 
+printenv
+
+echo "setting up paths"
+
+export LIBRARY_PATH=$ROOT_DIR/vendor/libgc
 export LD_LIBRARY_PATH=$ROOT_DIR/vendor/libgc
 export PATH=$PATH:`pwd`/$dir/bin
+
+echo "test"
 
 dylan-compiler -version    
 
@@ -126,7 +133,7 @@ echo "lets build it!"
 
 cd $build_dir
 
-dylan-compiler -build `find -maxdepth 1 -name "*.lid"`
+# dylan-compiler -build `find -maxdepth 1 -name "*.lid"`
 
 echo "ok"
 exit 1
