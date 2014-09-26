@@ -38,72 +38,47 @@ ls -l $cache_dir
 echo "env"
 ls -l $env_dir
 
-echo "compiling"
+# we really want our cache dir
+if [ ! -d $cache_dir ]; then
+    mkdir -p $cache_dir
+fi
+
+echo "download toolchain, if need be, leave it in $cache_dir"
+
+pushd $cache_dir
 
 bins="http://opendylan.org/downloads/opendylan/2013.2/opendylan-2013.2-x86_64-linux.tar.bz2"
 targetfile="opendylan.tar.bz2"
-
-#libs="https://www.dropbox.com/s/5jjs3ctm9ej05cc/libgcbins.tar.bz?dl=1"
-#targetfile2="libgcbins.tar.bz"
-
 dir="opendylan-2013.2"
-#dir2="libgcbins"
 
-# curl $bins -s -o - | tar xjf - -C $builddir
-# mkdir opendylan
-# cd opendylan
-# wget $bins -O $targetfile
+if [ ! -d $dir ]; then
+    echo "downloading opendylan"
+    curl -s -o $targetfile $bins
 
-# sudo apt-get install libgc-dev
+    echo "downlod finish"
 
-echo "downloading opendylan"
-curl -s -o $targetfile $bins
+    if [ ! -f "$targetfile" ]; then
+	echo "file doesnt exist"
+	exit 2
+    fi
 
-#echo "downloading libs"
-#curl -L -s -o $targetfile2 $libs
+    echo "extracting opendylan"
+    tar -jxf $targetfile
 
-echo "downlod finish"
+    if [ ! -d "`pwd`/$dir/bin" ]; then
+	echo "dir doesnt exist"
+	exit 2
+    fi
 
-if [ ! -f "$targetfile" ]; then
-    echo "file doesnt exist"
-    exit 2
+    echo "test compiler"
+
+    if [ ! -f "`pwd`/$dir/bin/dylan-compiler" ]; then
+	echo "compiler doesnt exist"
+	exit 2
+    fi
 fi
 
-#if [ ! -f "$targetfile2" ]; then
-#    echo "file 2 doesnt exist"
-#    exit 2
-#fi
-
-echo "extracting opendylan"
-tar -jxf $targetfile
-
-#echo "extracting libs"
-#tar -jxf $targetfile2
-
-if [ ! -d "`pwd`/$dir/bin" ]; then
-    echo "dir doesnt exist"
-    exit 2
-fi
-
-#if [ ! -d "`pwd`/$dir2" ]; then
-#    echo "dir2 doesnt exist"
-#    exit 2
-#fi
-
-# horrible hack ...
-#pushd `pwd`/$dir2
-#ln -s libgc.so libgc.so.1
-#popd
-#ls -l `pwd`/$dir2
-
-echo "dirs exists!"
-
-echo "test compiler"
-
-if [ ! -f "`pwd`/$dir/bin/dylan-compiler" ]; then
-    echo "compiler doesnt exist"
-    exit 2
-fi
+popd
 
 echo "some ls"
 
@@ -116,16 +91,23 @@ printenv
 
 echo "setting up paths"
 
+# we need this so ld doesn't fail ...
 export LIBRARY_PATH=$ROOT_DIR/vendor/libgc
+
+# we need this because there's dynamic linkage with libgc
 export LD_LIBRARY_PATH=$ROOT_DIR/vendor/libgc
-export PATH=$PATH:`pwd`/$dir/bin
+
+# we need this because we need dylan-compiler
+export PATH=$PATH:$cache_dir/bin
 
 echo "test"
 
+# does it work?
 dylan-compiler -version    
 
 echo "more tests"
 
+# just to make sure we have everything we need
 whereis ld
 whereis gcc
 
@@ -133,7 +115,9 @@ echo "lets build it!"
 
 cd $build_dir
 
-dylan-compiler -build `find -maxdepth 1 -name "*.lid"`
+# BUILD!!!
+#dylan-compiler -build `find -maxdepth 1 -name "*.lid"`
+
 
 echo "ok"
 exit 1
