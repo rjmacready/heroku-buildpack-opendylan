@@ -133,7 +133,7 @@ echo "lets build it!"
 
 cd $build_dir
 
-# dylan-compiler -build `find -maxdepth 1 -name "*.lid"`
+dylan-compiler -build `find -maxdepth 1 -name "*.lid"`
 
 echo "ok"
 exit 1
