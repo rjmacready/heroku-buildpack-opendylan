@@ -115,7 +115,7 @@ echo "test"
 export LD_LIBRARY_PATH=$ROOT_DIR/vendor/libgc
 export PATH=$PATH:`pwd`/$dir/bin
 
-strace dylan-compiler -version    
+dylan-compiler -version    
 
 
 echo "ok"
