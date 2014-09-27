@@ -88,8 +88,6 @@ else
     echo "we already seem to have the compiler, continue!"
 fi
 
-popd
-
 echo "some ls"
 
 ls -l `pwd`
@@ -122,16 +120,30 @@ whereis ld
 whereis gcc
 whereis git
 
-cd $build_dir
+# cd $build_dir
 
 echo "loading subprojects"
 
 # TODO we have git, but $build_dir is not a valid git repository. we need to test a way of loading external projects...
 #git submodule update --init --recursive
 
-# BUILD!!!
+pushd $build_dir
+
+lid_file=`find \`pwd\` -maxdepth 1 -name "*.lid"`
+
+echo "lid_file: $lid_file"
+
+popd
+
+# build inside the cache_dir
+
 echo "building"
-dylan-compiler -build `find -maxdepth 1 -name "*.lid"`
+dylan-compiler -build $lid_file
+
+cp _build/bin $build_dir
+cp _build/lib $build_dir
+
+popd
 
 #exit 1
 echo "ok"
