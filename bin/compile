@@ -142,6 +142,11 @@ popd
 echo "building"
 dylan-compiler -build $lid_file
 
+echo "ls"
+ls -l
+
+echo "copying _build results"
+
 cp _build/bin $build_dir
 cp _build/lib $build_dir
 
