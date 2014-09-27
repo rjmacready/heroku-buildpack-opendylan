@@ -109,7 +109,7 @@ export LD_LIBRARY_PATH=$ROOT_DIR/vendor/libgc
 # we need this because we need dylan-compiler
 export PATH=$PATH:$cache_dir/$dir/bin
 
-echo "test"
+echo "test compiler ... "
 
 # does it work?
 dylan-compiler -version    
@@ -121,16 +121,15 @@ whereis ld
 whereis gcc
 whereis git
 
-echo "lets build it!"
-
 cd $build_dir
 
-git submodule update --init --recursive
+echo "loading subprojects"
+
+# TODO we have git, but $build_dir is not a valid git repository. we need to test a way of loading external projects...
+#git submodule update --init --recursive
 
 # BUILD!!!
+echo "building"
 dylan-compiler -build `find -maxdepth 1 -name "*.lid"`
 
-
 echo "ok"
-exit 1
-
