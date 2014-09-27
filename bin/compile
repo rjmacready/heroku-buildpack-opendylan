@@ -84,7 +84,8 @@ if [ ! -d $dir ]; then
 	echo "compiler doesnt exist"
 	exit 2
     fi
-    
+else
+    echo "we already seem to have the compiler, continue!"
 fi
 
 popd
@@ -132,5 +133,5 @@ echo "loading subprojects"
 echo "building"
 dylan-compiler -build `find -maxdepth 1 -name "*.lid"`
 
-exit 1
+#exit 1
 echo "ok"
