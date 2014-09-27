@@ -53,6 +53,9 @@ echo "download toolchain, if need be, leave it in $cache_dir"
 
 pushd $cache_dir
 
+pwd
+ls -l
+
 bins="http://opendylan.org/downloads/opendylan/2013.2/opendylan-2013.2-x86_64-linux.tar.bz2"
 targetfile="opendylan.tar.bz2"
 dir="opendylan-2013.2"
@@ -122,7 +125,7 @@ echo "lets build it!"
 cd $build_dir
 
 # BUILD!!!
-#dylan-compiler -build `find -maxdepth 1 -name "*.lid"`
+dylan-compiler -build `find -maxdepth 1 -name "*.lid"`
 
 
 echo "ok"
