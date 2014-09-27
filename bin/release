@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo <<EOF
+---
+default_process_types:
+   sh start-process.sh bin/heroku-hello-world
+EOF
+
