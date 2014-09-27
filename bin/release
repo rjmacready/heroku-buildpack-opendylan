@@ -3,5 +3,5 @@
 cat <<EOF
 ---
 default_process_types:
-  web: bin/heroku-hello-world --listen "0.0.0.0:$PORT"
+  web: sh start-process.sh bin/heroku-hello-world
 EOF
