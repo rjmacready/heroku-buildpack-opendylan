@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-BUILDIR=$1
-
-# echo $BUILDDIR
-
-cat $BUILDDIR/Procfile
-
+cat <<EOF
+---
+default_process_types:
+  web: sh start-process.sh bin/heroku-hello-world
+EOF
