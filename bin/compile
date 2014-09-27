@@ -132,4 +132,5 @@ echo "loading subprojects"
 echo "building"
 dylan-compiler -build `find -maxdepth 1 -name "*.lid"`
 
+exit 1
 echo "ok"
