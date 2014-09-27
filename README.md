@@ -8,7 +8,10 @@ This buildpack enables the [opendylan implementation](http://opendylan.org/) in 
 
 Use as a regular heroku buildpack (https://devcenter.heroku.com/articles/third-party-buildpacks#using-a-custom-buildpack)
 
-Your root should have a .lid file, and it should include all dependencies as git submodules.
+You should: 
+* Have your main .lid at the root directory of the project
+* Include all dependencies in your project; you can (and should!) use git submodules. You need to register the location of every needed .lid (http://opendylan.org/documentation/getting-started-cli/adding-new-libraries.html).
+* Your project should compile to an executable. 
 
 There's a hello-world: https://github.com/rjmacready/heroku-opendylan-helloworld
 
