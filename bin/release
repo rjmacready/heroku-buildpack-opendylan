@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-
-
 cat <<EOF
 ---
 default_process_types:
-  web: _build/bin/heroku-hello-world --listen 0.0.0.0:$PORT
+  web: _build/bin/heroku-hello-world --listen "0.0.0.0:$PORT"
 EOF
