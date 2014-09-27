@@ -119,10 +119,13 @@ echo "more tests"
 # just to make sure we have everything we need
 whereis ld
 whereis gcc
+whereis git
 
 echo "lets build it!"
 
 cd $build_dir
+
+git submodule update --init --recursive
 
 # BUILD!!!
 dylan-compiler -build `find -maxdepth 1 -name "*.lid"`
