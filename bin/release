@@ -1,7 +1,3 @@
 #!/usr/bin/env bash
 
-cat <<EOF
----
-default_process_types:
-  web: sh start-process.sh bin/heroku-hello-world
-EOF
+cat $1/Procfile
