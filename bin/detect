@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-echo "detecting"
+echo "detecting at ... "
+echo $1
 
-if [ -f $1/*.lid ]; then
-  echo "it is a valid opendylan"
-  exit 0
-else
-  echo "it is NOT a valid opendylan"
+ls -l $1
+
+if [ ! -f $1/*.lid ]; then
+  echo "I need a *.lid"
   exit 1
 fi
+
+exit 0
