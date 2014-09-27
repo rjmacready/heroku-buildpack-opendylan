@@ -3,5 +3,5 @@
 cat <<EOF
 ---
 default_process_types:
-  web: _build/bin/hello-world
+  web: _build/bin/heroku-hello-world
 EOF
