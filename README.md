@@ -19,6 +19,8 @@ There's a hello-world: https://github.com/rjmacready/heroku-opendylan-helloworld
 
 This buildpack assumes a x64 machine (we need this to download the right version of the compiler) and a 10.04 ubuntu compatible machine (required by libgc.so).
 
+As we need to download the compiler and compile from scratch, compile times may take a while...
+
 ## Developer notes
 
 ...
