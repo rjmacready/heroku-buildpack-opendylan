@@ -1,12 +1,12 @@
-# Heroku Buildpack for OpenDylan
+# Heroku Buildpack for Opendylan
 
 Dylan is a multi-paradigm functional and object-oriented programming language. It is dynamic while providing a programming model designed to support efficient machine code generation, including fine-grained control over dynamic and static behaviors.
 
-This buildpack enables the [opendylan implementation](http://opendylan.org/) in [heroku](https://www.heroku.com/)
+This buildpack enables [opendylan](http://opendylan.org/) in [Heroku](https://www.heroku.com/)
 
 ## User manual
 
-Use as a regular heroku buildpack (https://devcenter.heroku.com/articles/third-party-buildpacks#using-a-custom-buildpack)
+Use it as a normal Heroku buildpack (https://devcenter.heroku.com/articles/third-party-buildpacks#using-a-custom-buildpack)
 
 You should: 
 * Have your main .lid at the root directory of the project
@@ -19,7 +19,7 @@ There's a hello-world: https://github.com/rjmacready/heroku-opendylan-helloworld
 
 This buildpack assumes a x64 machine (we need this to download the right version of the compiler) and a 10.04 ubuntu compatible machine (required by libgc.so).
 
-As we need to download the compiler and compile from scratch, compile times may take a while...
+As we need to download the compiler and compile from scratch, compiling may take a while...
 
 ## Developer notes
 
@@ -29,4 +29,3 @@ As we need to download the compiler and compile from scratch, compile times may 
 
 * Generate Procfile from project
 * Configure -force download of compiler, -force of build
-
