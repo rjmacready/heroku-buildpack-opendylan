@@ -3,6 +3,6 @@
 echo <<EOF
 ---
 default_process_types:
-   sh start-process.sh bin/heroku-hello-world
+   web: sh start-process.sh bin/heroku-hello-world
 EOF
 
