@@ -51,9 +51,9 @@ ls -l $env_dir
 
 echo "download toolchain, if need be, leave it in $cache_dir"
 
-#pushd $cache_dir
-#pwd
-#ls -l
+pushd $cache_dir
+pwd
+ls -l
 
 bins="http://opendylan.org/downloads/opendylan/2013.2/opendylan-2013.2-x86_64-linux.tar.bz2"
 targetfile="opendylan.tar.bz2"
@@ -87,7 +87,7 @@ if [ ! -d $dir ]; then
     
 fi
 
-#popd
+popd
 
 echo "some ls"
 
@@ -107,7 +107,7 @@ export LIBRARY_PATH=$ROOT_DIR/vendor/libgc
 export LD_LIBRARY_PATH=$ROOT_DIR/vendor/libgc
 
 # we need this because we need dylan-compiler
-export PATH=$PATH:$dir/bin
+export PATH=$PATH:$cache_dir/$dir/bin
 
 echo "test compiler ... "
 
