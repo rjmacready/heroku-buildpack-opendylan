@@ -4,4 +4,8 @@ PROCESS_NAME=$1
 
 export LD_LIBRARY_PATH=`pwd`/vendor/libgc
 
-$1 --listen "0.0.0.0:$PORT"
+# --listen "0.0.0.0$PORT"
+
+echo $PORT
+
+$1
