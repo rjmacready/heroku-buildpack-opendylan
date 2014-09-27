@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
+BUILDIR=$1
+
+echo $BUILDDIR
 echo "detecting"
 
-if [ -f $1/*.lid ]; then
-  echo "it is a valid opendylan"
-  exit 0
-else
+if [ ! -f $BUILDDIR/*.lid ]; then
   echo "it is NOT a valid opendylan"
   exit 1
+fi
+
+if [ ! -f $BUILDDIR/Procfile ]; then
+    echo "I need a procfile!!!"
+    exit 2
 fi

@@ -23,7 +23,7 @@ As we need to download the compiler and compile from scratch, compiling may take
 
 ## Developer notes
 
-...
+The bin/ and lib/ directories inside the _build will be the "released" binaries 
 
 ## TODO
 
