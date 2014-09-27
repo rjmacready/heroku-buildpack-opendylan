@@ -4,6 +4,10 @@ PROCESS_NAME=$1
 
 export LD_LIBRARY_PATH=`pwd`/vendor/libgc
 
-# echo $PORT
+pwd
+ls -l `pwd`
 
-$1 --listen 0.0.0.0:${PORT}
+echo "process name: ${PROCESS_NAME}"
+echo "port: ${PORT}"
+
+$PROCESS_NAME --listen 0.0.0.0:${PORT}
