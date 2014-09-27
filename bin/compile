@@ -147,8 +147,8 @@ ls -l
 
 echo "copying _build results"
 
-cp -R _build/bin $build_dir
-cp -R _build/lib $build_dir
+cp -R `pwd`/_build/bin $build_dir
+cp -R `pwd`/_build/lib $build_dir
 cp -R $ROOT_DIR/vendor $build_dir
 cp $ROOT_DIR/bin/start-process.sh $build_dir
 

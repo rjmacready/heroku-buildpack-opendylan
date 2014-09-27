@@ -10,9 +10,9 @@ if [ ! -f $1/*.lid ]; then
   exit 1
 fi
 
-#if [ ! -f $1/Procfile ]; then
-#  echo "I need a Procfile"
-#  exit 1
-#fi
+if [ ! -f $1/Procfile ]; then
+  echo "I need a Procfile"
+  exit 1
+fi
 
 exit 0
