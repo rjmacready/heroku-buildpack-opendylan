@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-echo "releasing"
+cat <<EOF
+---
+default_process_types:
+  web: _build/bin/hello-world
+EOF
