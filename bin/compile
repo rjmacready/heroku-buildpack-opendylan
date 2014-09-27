@@ -147,8 +147,8 @@ ls -l
 
 echo "copying _build results"
 
-cp _build/bin $build_dir
-cp _build/lib $build_dir
+cp -R _build/bin $build_dir
+cp -R _build/lib $build_dir
 
 popd
 
