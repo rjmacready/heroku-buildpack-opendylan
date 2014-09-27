@@ -136,6 +136,8 @@ echo "lid_file: $lid_file"
 popd
 
 # build inside the cache_dir
+# HACK we need access to the registry
+ln -s $build_dir/registry registry
 
 echo "building"
 dylan-compiler -build $lid_file

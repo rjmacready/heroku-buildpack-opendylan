@@ -25,4 +25,8 @@ As we need to download the compiler and compile from scratch, compile times may 
 
 ...
 
+## TODO
+
+* Generate Procfile from project
+* Configure -force download of compiler, -force of build
 
