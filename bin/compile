@@ -104,7 +104,7 @@ export LIBRARY_PATH=$ROOT_DIR/vendor/libgc
 export LD_LIBRARY_PATH=$ROOT_DIR/vendor/libgc
 
 # we need this because we need dylan-compiler
-export PATH=$PATH:$cache_dir/bin
+export PATH=$PATH:$cache_dir/$dir/bin
 
 echo "test"
 
