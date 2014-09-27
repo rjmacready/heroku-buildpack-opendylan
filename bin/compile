@@ -152,6 +152,10 @@ cp -R `pwd`/_build/lib $build_dir
 cp -R $ROOT_DIR/vendor $build_dir
 cp $ROOT_DIR/bin/start-process.sh $build_dir
 
+echo "build_dir: "
+echo $build_dir
+ls -l $build_dir
+
 popd
 
 #exit 1
