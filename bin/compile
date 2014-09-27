@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+echo "command: "
+for var in "$@"
+do
+    echo "$var"
+done
+
 echo "lsb_release -a"
 lsb_release -a
 
