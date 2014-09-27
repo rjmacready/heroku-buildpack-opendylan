@@ -45,16 +45,15 @@ echo "env"
 ls -l $env_dir
 
 # we really want our cache dir
-if [ ! -d $cache_dir ]; then
-    mkdir -p $cache_dir
-fi
+#if [ ! -d $cache_dir ]; then
+#    mkdir -p $cache_dir
+#fi
 
 echo "download toolchain, if need be, leave it in $cache_dir"
 
-pushd $cache_dir
-
-pwd
-ls -l
+#pushd $cache_dir
+#pwd
+#ls -l
 
 bins="http://opendylan.org/downloads/opendylan/2013.2/opendylan-2013.2-x86_64-linux.tar.bz2"
 targetfile="opendylan.tar.bz2"
@@ -74,20 +73,21 @@ if [ ! -d $dir ]; then
     echo "extracting opendylan"
     tar -jxf $targetfile
 
-    if [ ! -d "`pwd`/$dir/bin" ]; then
+    if [ ! -d "$dir/bin" ]; then
 	echo "dir doesnt exist"
 	exit 2
     fi
 
     echo "test compiler"
 
-    if [ ! -f "`pwd`/$dir/bin/dylan-compiler" ]; then
+    if [ ! -f "$dir/bin/dylan-compiler" ]; then
 	echo "compiler doesnt exist"
 	exit 2
     fi
+    
 fi
 
-popd
+#popd
 
 echo "some ls"
 
@@ -107,7 +107,7 @@ export LIBRARY_PATH=$ROOT_DIR/vendor/libgc
 export LD_LIBRARY_PATH=$ROOT_DIR/vendor/libgc
 
 # we need this because we need dylan-compiler
-export PATH=$PATH:$cache_dir/$dir/bin
+export PATH=$PATH:$dir/bin
 
 echo "test compiler ... "
 
