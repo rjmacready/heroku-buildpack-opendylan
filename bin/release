@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo <<EOF
+cat <<EOF
 ---
 default_process_types:
    web: sh start-process.sh bin/heroku-hello-world
