@@ -3,7 +3,12 @@
 echo "detecting"
 
 if [ ! -f $1/*.lid ]; then
-  echo "it is NOT a valid opendylan"
+  echo "it is NOT a valid opendylan: missing a .lid"
+  exit 1
+fi
+
+if [ ! -f $1/Procfile ]; then
+  echo "it is NOT a valid heroku project: missing a Procfile"
   exit 1
 fi
 
