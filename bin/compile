@@ -38,6 +38,10 @@ env_dir=$3
 echo "build"
 ls -l $build_dir
 
+if [ ! -d $cache_dir ]; then
+    mkdir -p $cache_dir
+fi
+
 echo "cache"
 ls -l $cache_dir
 
