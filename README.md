@@ -14,7 +14,7 @@ You should:
 * Your project should compile to an executable. 
 
 There's a [hello-world](https://github.com/rjmacready/heroku-opendylan-helloworld) (http://opendylan-helloworld.herokuapp.com)
-And a [http-server.demo](https://github.com/rjmacready/heroku-http-server-demo) (http://http-server-demo.herokuapp.com)
+And a [http-server-demo](https://github.com/rjmacready/heroku-http-server-demo) (http://http-server-demo.herokuapp.com)
 
 ### Caveats
 
