@@ -1,18 +1,11 @@
 #!/usr/bin/env bash
 
-echo "detecting at ... "
-echo $1
+echo "detecting"
 
-ls -l $1
-
-if [ ! -f $1/*.lid ]; then
-  echo "I need a *.lid"
+if [ -f $1/*.lid ]; then
+  echo "it is a valid opendylan"
+  exit 0
+else
+  echo "it is NOT a valid opendylan"
   exit 1
 fi
-
-#if [ ! -f $1/Procfile ]; then
-#  echo "I need a Procfile"
-#  exit 1
-#fi
-
-exit 0
